@@ -21,7 +21,7 @@ Para este ejemplo se utiliza Google Cloud, pero se puede usar cualquier recurso 
 - Una instancia
 - Habilitar una regla de firewall en el puerto 8080 para que Jenkins quede abierto y disponible para acceso en la instancia (Esta configuración puede variar de proveedor)
 
-Opcional: Si no se quiere usar una instancia en la nube, se puede usar Virtualbox con alguna distro de Ubuntu o como se desee.
+Opcional: Si no se quiere usar una instancia en la nube, se puede usar Virtualbox con alguna distro de Linux o como se desee.
 
 # Instalar Jenkins en la instancia
 Es necesario tener JDK para que Jenkins se ejecute exitosamente:  
@@ -79,9 +79,10 @@ Ahora es necesario darle permisos de usuario a Jenkins y a Ubuntu para acceder a
 ```
 sudo su - 
 usermod -aG docker jenkins
-usermod -aG docker ubuntu
+usermod -aG docker ubuntu *
 systemctl restart docker
 ```
+* Si se usa Debian no es necesario este comando.
 
 Después de esto, es necesario reiniciar Jenkins otra vez, se puede hacer desde acá:
 http://IPPUBLICA:8080/restart
